@@ -28,7 +28,6 @@ std::vector<int> twoSum(const std::vector<int>& nums, int target) {
 
         // return {};
 
-        // std::unordered_map<int, int> numMap;
         for(int i = 0; i<nums.size(); i++){
             int complement = target-nums[i];
             auto it = std::find(nums.begin()+i+1, nums.end(), complement);

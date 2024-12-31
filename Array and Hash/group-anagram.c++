@@ -3,26 +3,45 @@
 #include <unordered_map>
 #include <algorithm>
 #include <iostream>
+#include <sstream>
 
 class Solution {
 public:
     std::vector<std::vector<std::string>> groupAnagrams(std::vector<std::string>& strs) {
-        std::unordered_map<std::string, std::vector<std::string>> anagramGroups;
+        // std::unordered_map<std::string, std::vector<std::string>> anagramGroups;
 
-        // Group anagrams using a sorted string as the key
-        for (const std::string& str : strs) {
-            std::string sortedStr = str;
-            std::sort(sortedStr.begin(), sortedStr.end());
-            anagramGroups[sortedStr].push_back(str);
+        // // Group anagrams using a sorted string as the key
+        // for (const std::string& str : strs) {
+        //     std::string sortedStr = str;
+        //     std::sort(sortedStr.begin(), sortedStr.end());
+        //     anagramGroups[sortedStr].push_back(str);
+        // }
+
+        // // Collect the grouped anagrams into the result vector
+        // std::vector<std::vector<std::string>> result;
+        // for (auto& group : anagramGroups) {
+        //     result.push_back(group.second);
+        // }
+
+        // return result;
+        std::unordered_map<std::string, std::vector<std::string>> res;
+
+        for (const auto& s : strs){
+            std::vector<int> count(26,0);
+            for (char c : s){
+                count[c - 'a']++;
+            }
+            std::string key = std::to_string(count[0]);
+            for (int i =1; i<26;i++){
+                key += ',' + std::to_string(count[i]);
+            }
+            res[key].push_back(s);
         }
-
-        // Collect the grouped anagrams into the result vector
         std::vector<std::vector<std::string>> result;
-        for (auto& group : anagramGroups) {
-            result.push_back(group.second);
+        for(const auto& pair :res){
+            result.push_back(pair.second);
         }
-
-        return result;
+        result;
     }
 };
 

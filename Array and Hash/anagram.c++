@@ -36,7 +36,7 @@ bool areAnagrams(const std::string& s, const std::string& t) {
     // std::sort(sortt.begin(), sortt.end());
 
     // return sorts==sortt;
-
+    // Changes
     if (s.length() != t.length()){
         return false;
     }

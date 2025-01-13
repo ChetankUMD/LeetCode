@@ -27,7 +27,7 @@ public:
                     }
                 }
 
-                // Check 3x3 sub-boxes
+                // Check 3x3 sub-boxes using the following formula
                 int boxRow = 3 * (i / 3) + j / 3;
                 int boxCol = 3 * (i % 3) + j % 3;
                 if (board[boxRow][boxCol] != '.') {

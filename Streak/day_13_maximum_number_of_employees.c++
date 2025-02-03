@@ -56,9 +56,7 @@ public:
 int main() {
     Solution solution;
 
-    // Example test case
-    vector<int> favorite = {2, 2, 1, 2}; // Favorite person for each employee
-
+    vector<int> favorite = {2, 2, 1, 2};
     int result = solution.maximumInvitations(favorite);
 
     cout << "Maximum number of employees that can be invited: " << result << endl;

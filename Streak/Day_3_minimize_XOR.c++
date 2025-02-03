@@ -8,16 +8,12 @@ public:
     int minimizeXor(int num1, int num2) {
         int x_count = __builtin_popcount(num2); // Number of set bits in num2
         int x = 0;
-
-        // First loop: Traverse from MSB to LSB, prioritize matching MSBs in num1
         for (int i = 31; i >= 0 && x_count > 0; --i) {
             if ((num1 & (1 << i)) != 0) { // If the i-th bit in num1 is set
                 x |= (1 << i);           // Set the i-th bit in x
                 --x_count;               // Decrease required set bits
             }
         }
-
-        // Second loop: Fill remaining set bits in x from LSB upwards
         for (int i = 0; i < 32 && x_count > 0; ++i) {
             if ((x & (1 << i)) == 0) { // If the i-th bit in x is not set
                 x |= (1 << i);        // Set the i-th bit in x

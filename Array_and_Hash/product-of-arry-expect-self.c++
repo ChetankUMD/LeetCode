@@ -11,15 +11,16 @@ public:
         // Calculate prefix products
         int prefix = 1;
         for (int i = 0; i < n; i++) {
-            result[i] = prefix;
+            result[i] = prefix;// just store the prefix product in result[i]
             prefix *= nums[i];
         }
 
         // Calculate postfix products and multiply
         int postfix = 1;
         for (int i = n - 1; i >= 0; i--) {
-            result[i] *= postfix;
+            result[i] *= postfix; // multiply the current postfix product with the current number
             postfix *= nums[i];
+            cout << postfix << endl;
         }
 
         return result;

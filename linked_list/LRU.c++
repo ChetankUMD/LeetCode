@@ -99,7 +99,7 @@ int main() {
     cache.put(4, 40); // Removes key 1
     cout << "Get(1): " << cache.get(1) << endl; // Returns -1 (not found)
     cout << "Get(3): " << cache.get(3) << endl; // Returns 30
-    cout << "Get(4): " << cache.get(4) << endl; // Returns 40
+    cout << "Get(4): " << cache.get(4) << endl; // Returns is 40
 
     return 0;
 }

@@ -20,7 +20,6 @@ public:
         for (int i = n - 1; i >= 0; i--) {
             result[i] *= postfix; // multiply the current postfix product with the current number
             postfix *= nums[i];
-            cout << postfix << endl;
         }
 
         return result;

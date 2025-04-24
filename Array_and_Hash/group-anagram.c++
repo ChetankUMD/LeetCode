@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <iostream>
 #include <sstream>
-
+using namespace std;
 class Solution {
 public:
     std::vector<std::vector<std::string>> groupAnagrams(std::vector<std::string>& strs) {
@@ -24,24 +24,42 @@ public:
         // }
 
         // return result;
-        std::unordered_map<std::string, std::vector<std::string>> res;
+        // std::unordered_map<std::string, std::vector<std::string>> res;
 
-        for (const auto& s : strs){
-            std::vector<int> count(26,0);
-            for (char c : s){
-                count[c - 'a']++;
-            }
-            std::string key = std::to_string(count[0]);
-            for (int i =1; i<26;i++){
-                key += ',' + std::to_string(count[i]);
-            }
-            res[key].push_back(s);
+        // for (const auto& s : strs){
+        //     std::vector<int> count(26,0);
+        //     for (char c : s){
+        //         count[c - 'a']++;
+        //     }
+        //     std::string key = std::to_string(count[0]);
+        //     for (int i =1; i<26;i++){
+        //         key += ',' + std::to_string(count[i]);
+        //     }
+        //     res[key].push_back(s);
+        // }
+        // std::vector<std::vector<std::string>> result;
+        // for(const auto& pair :res){
+        //     result.push_back(pair.second);
+        // }
+        // result;
+
+
+
+        unordered_map<string, vector<string>> map;
+
+        for(auto s : strs){
+            string sorted = s;
+            sort(sorted.begin(), sorted.end());
+
+            map[sorted].push_back(s); 
         }
-        std::vector<std::vector<std::string>> result;
-        for(const auto& pair :res){
-            result.push_back(pair.second);
+
+        vector<vector<string>> res;
+        for(auto s : map){
+            res.push_back(s.second);
         }
-        result;
+
+        return res;
     }
 };
 
